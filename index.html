@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전구 애니메이션</title>
+    <style>
+        * {margin:0; padding:0; box-sizing: border-box;}
+        #layout {max-width:1000px; margin:auto; border:5px dashed red; text-align: center;}
+        header {background-image: linear-gradient(blue,aqua); padding:20px 0 30px;}
+        h1 {font-size: 3rem;}
+        img {width:100%; display:block;}
+        main{display:flex; align-items: center;}
+        aside {flex:1;}
+        aside h3 {font-size: 2rem;}
+        aside h3 b {display: inline-block;  animation:updown 2s infinite alternate;}
+
+        section {flex:3; position: relative; overflow:hidden;}
+        section h2 {display: none;}
+        .colorful {position: absolute; top:0;  animation: transform 2s;}
+
+        @keyframes transform {
+            from {opacity:0; transform: translateY(-200px); }
+            to   {opacity:1; transform: translateY(0); }
+        }
+        @keyframes updown {
+            from {transform: translateY(-20px); color:blue;}
+            to   {transform: translateY(20px); color:aqua;}
+        }
+
+        @media(max-width:600px){
+            main {flex-direction: column;}
+            section {order:1;}
+            aside {order:2; padding:30px;}
+        }
+    </style>
+</head>
+<body>
+    <div id="layout">
+        <header><h1>Water bulb</h1></header>
+        <main>
+            <aside><h3>ani<b>ma</b>tion</h3></aside>
+            <section>
+                <h2>전구</h2>
+                <img src="images/bg.jpg" alt="배경">
+                <img src="images/bulb.jpg" alt="전구" class="colorful">
+            </section>
+        </main>
+    </div>
+</body>
+</html>
